@@ -3,6 +3,10 @@
 ## Extension of HikVision Windows SDK
 https://www.hikvision.com/en/support/download/sdk/
 
+
+### Application
+- /PreviewDemo/bin/PreviewDemo.exe
+
 ### Require Config in json format
 - /PreviewDemo/bin/DeviceCfg.json 
 
@@ -45,7 +49,7 @@ https://www.hikvision.com/en/support/download/sdk/
 // 4 => 4x4 total 16  videos live-view
 ```
 
-## Full screen windows application
+## Full screen windows application (PreviewDemo.exe)
 ![screenshot](./screenshot.png)
 
 
