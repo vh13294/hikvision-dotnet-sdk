@@ -36,11 +36,13 @@ https://www.hikvision.com/en/support/download/sdk/
   ]
 }
 
-// numberOfScreen
+// displayScreen: support for multiple monitors, select the N monitor to display
+
+// numberOfScreen: the number of video frames per monitor
 // 1 => 1
-// 2 => 2x2
-// 3 => 3x3
-// 4 => 4x4
+// 2 => 2x2 total 4   videos live-view
+// 3 => 3x3 total 9   videos live-view
+// 4 => 4x4 total 16  videos live-view
 ```
 
 ## Full screen windows application
