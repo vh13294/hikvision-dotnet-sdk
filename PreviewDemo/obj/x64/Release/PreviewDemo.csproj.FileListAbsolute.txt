@@ -1,0 +1,14 @@
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\PreviewDemo.exe.config
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\PreviewDemo.exe
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\Newtonsoft.Json.dll
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\System.ValueTuple.dll
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\bin\Vip.Notification.dll
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.csproj.AssemblyReference.cache
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.csproj.SuggestedBindingRedirects.cache
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.Preview.resources
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.csproj.GenerateResource.cache
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.csproj.CoreCompileInputs.cache
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.csproj.CopyComplete
+C:\Users\DESKTOP\Documents\hikvision\PreviewDemo\obj\x64\Release\PreviewDemo.exe
