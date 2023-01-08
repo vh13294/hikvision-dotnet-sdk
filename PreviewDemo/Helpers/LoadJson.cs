@@ -10,7 +10,7 @@ namespace PreviewDemo.Helpers
     {
         public static Config GetDVRs()
         {
-            using (StreamReader r = new StreamReader("DeviceCfg.json"))
+            using (StreamReader r = new StreamReader("DeviceConfig.json"))
             {
                 string json = r.ReadToEnd();
                 return JsonConvert.DeserializeObject<Config>(json);

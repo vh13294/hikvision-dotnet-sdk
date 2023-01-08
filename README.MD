@@ -8,10 +8,10 @@ https://www.hikvision.com/en/support/download/sdk/
 - /PreviewDemo/bin/PreviewDemo.exe
 
 ### Require Config in json format
-- /PreviewDemo/bin/DeviceCfg.json 
+- /PreviewDemo/bin/DeviceConfig.json 
 
 ```javascript
-// DeviceCfg.json 
+// DeviceConfig.json 
 {
   "displayScreen": 0,
   "numberOfScreen": 3,
@@ -54,8 +54,7 @@ https://www.hikvision.com/en/support/download/sdk/
 
 
 ### startup.bat
-- Bat file for windows startup application
-- ./startup.bat
+- Batch file for windows startup application
 
 ```bat
 cd "C:\hikvision\PreviewDemo\bin"
