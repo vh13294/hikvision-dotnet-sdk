@@ -1,5 +1,7 @@
 # HikVision DVR & NVR Live-Viewer .Net 4.8 / C#
 
+## This project only support release build x64
+
 ## Extension of HikVision Windows SDK
 https://www.hikvision.com/en/support/download/sdk/
 
