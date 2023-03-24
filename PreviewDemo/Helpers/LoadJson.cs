@@ -32,6 +32,7 @@ namespace PreviewDemo.Helpers
             public string username { get; set; }
             public string password { get; set; }
             public Int16 port { get; set; }
+            public uint streamType { get; set; }
             public List<Int16> channels { get; set; }
         }
 

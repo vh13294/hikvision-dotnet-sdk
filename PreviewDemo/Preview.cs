@@ -187,7 +187,7 @@ namespace PreviewDemo
             for (int i = 0; i < deviceCount; i++)
             {
                 Device device = config.Devices[i];
-                dvrs[i] = new DVR(device.ip, device.username, device.password, device.port, device.channels.ToArray(), errorDictionary);
+                dvrs[i] = new DVR(device.ip, device.username, device.password, device.port, device.streamType, device.channels.ToArray(), errorDictionary);
             }
         }
 

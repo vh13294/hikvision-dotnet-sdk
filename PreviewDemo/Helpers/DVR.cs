@@ -26,17 +26,19 @@ namespace PreviewDemo.Helpers
 
         private string ip;
         private Int16 port;
+        private uint streamType;
         private string username;
         private string password;
         public Int16[] channels;
         public Dictionary<string, string> errorDictionary;
 
-        public DVR(string ip, string username, string password, Int16 port, Int16[] channels, Dictionary<string, string> errorDictionary)
+        public DVR(string ip, string username, string password, Int16 port, uint streamType, Int16[] channels, Dictionary<string, string> errorDictionary)
         {
             this.ip = ip;
             this.username = username;
             this.password = password;
             this.port = port;
+            this.streamType = streamType;
             this.channels = channels;
             this.errorDictionary = errorDictionary;
 
@@ -101,7 +103,7 @@ namespace PreviewDemo.Helpers
                 // (configuration command NET_DVR_GET_IPPARACFG_V40) (dwStartDChan).
                 lpPreviewInfo.lChannel = channels[index];
                 // Stream type: 0-main stream, 1-sub stream, 2-three stream, 3-virtual stream, and so on
-                lpPreviewInfo.dwStreamType = 0;
+                lpPreviewInfo.dwStreamType = this.streamType;
                 // Connection mode: 0- TCP mode, 1- UDP mode, 2- multicast mode, 3- RTP mode,
                 // 4- RTP/RTSP, 5- RTP/HTTP, 6- HRUDP (reliable transmission)
                 lpPreviewInfo.dwLinkMode = 0;
@@ -110,8 +112,8 @@ namespace PreviewDemo.Helpers
                 // playback failure, etc., the upper layer will be notified by preview abnormality. The pause time can be shortened during loop playback, which is consistent with NET_DVR_RealPlay.
                 // If it is set to block, it means that the success or failure will not be returned until the playback operation is completed.When the internal connection of the SDK fails when the network is abnormal,
                 // there will be a 5s timeout before the return can be returned, which is not suitable for polling and streaming operations.
-                lpPreviewInfo.bBlocked = false;
-                lpPreviewInfo.dwDisplayBufNum = 1;
+                lpPreviewInfo.bBlocked = true;
+                lpPreviewInfo.dwDisplayBufNum = 15;
                 lpPreviewInfo.byProtoType = 0;
                 lpPreviewInfo.byPreviewMode = 0;
 

@@ -23,6 +23,7 @@ https://www.hikvision.com/en/support/download/sdk/
       "username": "admin",
       "password": "admin",
       "port": 8000,
+      "streamType": 0,
       "channels": [1, 2, 7, 33]
     },
     {
@@ -30,6 +31,7 @@ https://www.hikvision.com/en/support/download/sdk/
       "username": "admin",
       "password": "admin",
       "port": 8050,
+      "streamType": 0,
       "channels": [1, 2, 4]
     },
     {
@@ -37,6 +39,7 @@ https://www.hikvision.com/en/support/download/sdk/
       "username": "admin",
       "password": "admin",
       "port": 8000,
+      "streamType": 1,
       "channels": [1, 3]
     }
   ]
