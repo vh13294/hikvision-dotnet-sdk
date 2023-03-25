@@ -1,2 +1,2 @@
-cd "C:\hikvision\PreviewDemo\bin"
+cd "C:\bin\"
 start "" PreviewDemo.exe

@@ -7,10 +7,10 @@ https://www.hikvision.com/en/support/download/sdk/
 
 
 ### Application
-- /PreviewDemo/bin/PreviewDemo.exe
+- bin/PreviewDemo.exe
 
 ### Require Config in json format
-- /PreviewDemo/bin/DeviceConfig.json 
+- bin/DeviceConfig.json 
 
 ```javascript
 // DeviceConfig.json 
@@ -52,7 +52,16 @@ https://www.hikvision.com/en/support/download/sdk/
 // 2 => 2x2 total 4   videos live-view
 // 3 => 3x3 total 9   videos live-view
 // 4 => 4x4 total 16  videos live-view
+
+
+// streamType
+// 0 => main stream
+// 1 => sub stream
+
 ```
+## Note
+- Please do not rename the bin directory
+
 
 ## Full screen windows application (PreviewDemo.exe)
 ![screenshot](./screenshot.png)
@@ -62,6 +71,6 @@ https://www.hikvision.com/en/support/download/sdk/
 - Batch file for windows startup application
 
 ```bat
-cd "C:\hikvision\PreviewDemo\bin"
+cd "C:\bin\"
 start "" PreviewDemo.exe
 ```
