@@ -191,6 +191,7 @@ namespace PreviewDemo
             VideoFrames[frameIndex].Location = new System.Drawing.Point(posX, posY);
             VideoFrames[frameIndex].Size = new System.Drawing.Size(videoFrameWidth, videoFrameHeight);
             VideoFrames[frameIndex].BackColor = Color.FromName("Black");
+            VideoFrames[frameIndex].Visible = false;
 
             controls.Add(VideoFrames[frameIndex]);
             ((System.ComponentModel.ISupportInitialize)(VideoFrames[frameIndex])).EndInit();

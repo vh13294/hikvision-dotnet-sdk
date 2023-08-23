@@ -179,7 +179,7 @@
     <PreBuildEvent>
     </PreBuildEvent>
     <PostBuildEvent>
-      xcopy "$(ProjectDir)Image" "$(ProjectDir)bin\Image" /E/H/C/I
+      xcopy "$(ProjectDir)Image" "$(ProjectDir)bin\Image" /E/H/C/I/Y
     </PostBuildEvent>
   </PropertyGroup>
 </Project>
