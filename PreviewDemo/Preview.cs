@@ -173,7 +173,8 @@ namespace PreviewDemo
             frame.Location = new System.Drawing.Point(posX, posY);
             frame.Size = new System.Drawing.Size(videoFrameWidth, videoFrameHeight);
             frame.BorderStyle = BorderStyle.Fixed3D;
-            frame.BackgroundImage = Image.FromFile(@"Image\noVideo.jpg");
+            frame.Image = Image.FromFile(@"Image\noVideo.jpg");
+            frame.SizeMode = PictureBoxSizeMode.CenterImage;
 
             controls.Add(frame);
             ((System.ComponentModel.ISupportInitialize)(frame)).EndInit();
@@ -205,7 +206,7 @@ namespace PreviewDemo
             for (int i = 0; i < deviceCount; i++)
             {
                 Device device = config.Devices[i];
-                dvrs[i] = new DVR(this, device.ip, device.username, device.password, device.port, device.streamType, device.channels.ToArray(), errorDictionary);
+                dvrs[i] = new DVR(device.ip, device.username, device.password, device.port, device.streamType, device.channels.ToArray(), errorDictionary);
             }
         }
 

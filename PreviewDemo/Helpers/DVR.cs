@@ -26,8 +26,6 @@ namespace PreviewDemo.Helpers
 
         private Int32 m_lUserID = -1;
         private Int32[] m_lRealHandles;
-
-        private System.Windows.Forms.Form form;
         private Dictionary<Int32, System.Windows.Forms.PictureBox> realHandlesAndFrameList;
 
         private string ip;
@@ -38,9 +36,8 @@ namespace PreviewDemo.Helpers
         public Int16[] channels;
         public Dictionary<string, string> errorDictionary;
 
-        public DVR(System.Windows.Forms.Form form, string ip, string username, string password, Int16 port, uint streamType, Int16[] channels, Dictionary<string, string> errorDictionary)
+        public DVR(string ip, string username, string password, Int16 port, uint streamType, Int16[] channels, Dictionary<string, string> errorDictionary)
         {
-            this.form = form;
             this.ip = ip;
             this.username = username;
             this.password = password;
@@ -150,13 +147,16 @@ namespace PreviewDemo.Helpers
                 // connection active
                 if(!frame.Visible)
                 {
-                    ThreadHelperClass.SetPictureBoxVisibility(this.form, frame, true);
+                    ThreadHelperClass.SetPictureBoxVisibility(frame, true);
                 }
             }
             else
             {
                 // connection lost
-                ThreadHelperClass.SetPictureBoxVisibility(this.form, frame, false);
+                if (frame.Visible)
+                {
+                    ThreadHelperClass.SetPictureBoxVisibility(frame, false);
+                }
             }
         }
 
