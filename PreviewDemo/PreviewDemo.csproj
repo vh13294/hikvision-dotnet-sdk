@@ -139,6 +139,7 @@
   <ItemGroup>
     <Compile Include="Helpers\DVR.cs" />
     <Compile Include="Helpers\LoadJson.cs" />
+    <Compile Include="Helpers\ThreadHelperClass.cs" />
     <Compile Include="Settings.Designer.cs" />
     <Content Include="App.ico" />
     <Compile Include="AssemblyInfo.cs">
@@ -169,11 +170,16 @@
       <Version>1.0.4</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientDemoDll\" />
+    <Folder Include="HCNetSDKCom\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
     <PostBuildEvent>
+      xcopy "$(ProjectDir)Image" "$(ProjectDir)bin\Image" /E/H/C/I
     </PostBuildEvent>
   </PropertyGroup>
 </Project>

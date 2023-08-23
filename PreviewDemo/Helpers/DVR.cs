@@ -21,8 +21,14 @@ namespace PreviewDemo.Helpers
     public class DVR
     {
         CHCNetSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo;
+        CHCNetSDK.REALDATACALLBACK RealData = null;
+        
+
         private Int32 m_lUserID = -1;
         private Int32[] m_lRealHandles;
+
+        private System.Windows.Forms.Form form;
+        private Dictionary<Int32, System.Windows.Forms.PictureBox> realHandlesAndFrameList;
 
         private string ip;
         private Int16 port;
@@ -32,8 +38,9 @@ namespace PreviewDemo.Helpers
         public Int16[] channels;
         public Dictionary<string, string> errorDictionary;
 
-        public DVR(string ip, string username, string password, Int16 port, uint streamType, Int16[] channels, Dictionary<string, string> errorDictionary)
+        public DVR(System.Windows.Forms.Form form, string ip, string username, string password, Int16 port, uint streamType, Int16[] channels, Dictionary<string, string> errorDictionary)
         {
+            this.form = form;
             this.ip = ip;
             this.username = username;
             this.password = password;
@@ -47,6 +54,9 @@ namespace PreviewDemo.Helpers
             {
                 this.m_lRealHandles[i] = -1;
             }
+
+            this.realHandlesAndFrameList = new Dictionary<Int32, System.Windows.Forms.PictureBox>();
+            this.RealData = new CHCNetSDK.REALDATACALLBACK(RealDataCallBack);
         }
 
         public async void loginAsync()
@@ -120,7 +130,8 @@ namespace PreviewDemo.Helpers
                 IntPtr pUser = new IntPtr();
 
                 // Start live view 
-                this.m_lRealHandles[index] = CHCNetSDK.NET_DVR_RealPlay_V40(this.m_lUserID, ref lpPreviewInfo, null/*RealData*/, pUser);
+                this.m_lRealHandles[index] = CHCNetSDK.NET_DVR_RealPlay_V40(this.m_lUserID, ref lpPreviewInfo, RealData, pUser);
+                this.realHandlesAndFrameList.Add(this.m_lRealHandles[index], RealPlayWnd);
                 if (this.m_lRealHandles[index] < 0)
                 {
                     showError();
@@ -128,6 +139,25 @@ namespace PreviewDemo.Helpers
                 }
             }
             return true;
+        }
+
+        public void RealDataCallBack(Int32 lRealHandle, UInt32 dwDataType, IntPtr pBuffer, UInt32 dwBufSize, IntPtr pUser)
+        {
+            System.Windows.Forms.PictureBox frame = this.realHandlesAndFrameList[lRealHandle];
+
+            if (dwBufSize > 0)
+            {
+                // connection active
+                if(!frame.Visible)
+                {
+                    ThreadHelperClass.SetPictureBoxVisibility(this.form, frame, true);
+                }
+            }
+            else
+            {
+                // connection lost
+                ThreadHelperClass.SetPictureBoxVisibility(this.form, frame, false);
+            }
         }
 
         private void showError()

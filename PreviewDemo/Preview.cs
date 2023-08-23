@@ -152,6 +152,8 @@ namespace PreviewDemo
                 foreach (Int16 channel in dvr.channels)
                 {
                     createVideoFrame(frameIndex, controls, posX, posY, videoFrameWidth, videoFrameHeight);
+                    createBackgroundFrame(controls, posX, posY, videoFrameWidth, videoFrameHeight);
+
                     frameIndex++;
                     if (frameIndex % screenNumber == 0)
                     {
@@ -162,6 +164,21 @@ namespace PreviewDemo
                 }
             }
         }
+
+        private void createBackgroundFrame(Control.ControlCollection controls, int posX, int posY, int videoFrameWidth, int videoFrameHeight)
+        {
+            System.Windows.Forms.PictureBox frame = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(frame)).BeginInit();
+
+            frame.Location = new System.Drawing.Point(posX, posY);
+            frame.Size = new System.Drawing.Size(videoFrameWidth, videoFrameHeight);
+            frame.BorderStyle = BorderStyle.Fixed3D;
+            frame.BackgroundImage = Image.FromFile(@"Image\noVideo.jpg");
+
+            controls.Add(frame);
+            ((System.ComponentModel.ISupportInitialize)(frame)).EndInit();
+        }
+
 
         private void createVideoFrame(int frameIndex, Control.ControlCollection controls, int posX, int posY, int videoFrameWidth, int videoFrameHeight)
         {
@@ -187,7 +204,7 @@ namespace PreviewDemo
             for (int i = 0; i < deviceCount; i++)
             {
                 Device device = config.Devices[i];
-                dvrs[i] = new DVR(device.ip, device.username, device.password, device.port, device.streamType, device.channels.ToArray(), errorDictionary);
+                dvrs[i] = new DVR(this, device.ip, device.username, device.password, device.port, device.streamType, device.channels.ToArray(), errorDictionary);
             }
         }
 
